@@ -269,22 +269,25 @@
         </div>
         <div class="col">
           <result_box num="125" class_icon="fa fa-users fa-2x float-left" title="تعداد یوزر های فعال"
-                      v-bind:value_out="60"
+                      v-bind:value_out="20"
                       colorv="info"></result_box>
         </div>
         <div class="col">
           <result_box num="477215" class_icon="fa fa-envelope fa-2x float-left" title="تعداد ایمیل های دریافت شده"
-                      v-bind:value_out="60"
+                      v-bind:value_out="90"
                       colorv="warning"></result_box>
         </div>
         <div class="col">
           <result_box num="899" class_icon="fa fa-shopping-basket fa-2x float-left" title="تعداد محصول اضافه شده"
-                      v-bind:value_out="60"
+                      v-bind:value_out="30"
                       colorv="success"></result_box>
         </div>
       </div>
       <div class="mx-5 mt-5 table_border">
-        <table1></table1>
+        <!--<table1></table1>-->
+        <!--<information class="mt-2"></information>-->
+        <router-view></router-view>
+
       </div>
 
 
@@ -297,12 +300,14 @@
   import drop_down from './Utils/dropdown_'
   import table1 from './Utils/table_'
   import result_box from './Utils/box-result'
+  import information from '../components/information_tab'
 
   export default {
     components: {
       drop_down,
       table1,
-      result_box
+      result_box,
+      information
     },
     methods: {
       toggle() {
@@ -319,10 +324,6 @@
     data() {
       return {
         drawer: true,
-        items: [
-          {title: 'Home', icon: 'dashboard'},
-          {title: 'About', icon: 'question_answer'}
-        ],
         right: null,
         show: true,
         fullscreen: false,
@@ -355,25 +356,13 @@
 
   .icon-hover:hover {
     opacity: 0.6;
-
-    /*transition: .3s cubic-bezier(.25,.8,.5,1);*/
     background-color: #e2e2e2;
   }
 
-  /*.icon-hover:after{*/
-  /*opacity: 0;*/
-  /*transition: all 0.8s;*/
-  /*}*/
   button:focus {
     outline: 0;
   }
 
-  /*padding: 0;*/
-  /*margin: 0;*/
-  /*opacity: 1;*/
-  /*transition: .5s;*/
-  /*!*background-color: #e2e2e2;*!*/
-  /*}*/
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
   }

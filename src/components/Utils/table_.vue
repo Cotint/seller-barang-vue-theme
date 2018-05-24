@@ -3,17 +3,17 @@
     <!-- User Interface controls -->
     <div class="row d-flex justify-content-between">
       <div class="col-md-9 d-flex">
-      <div class="col-md-1 pt-4 mt-1 p-0">
-        <i class="fa fa-bars ml-1" aria-hidden="true"></i>
-        سفارش ها
-      </div>
-      <div class="col-md-7 mt-1 p-0 mx-2">
-        <!--<b-form-group horizontal class="mb-0">-->
-        <b-input-group class="col-md-3 px-0">
-          <b-form-input v-model="filter" placeholder="جستجو کنید"/>
-        </b-input-group>
-        <!--</b-form-group>-->
-      </div>
+        <div class="col-md-1 pt-4 mt-1 p-0">
+          <i class="fa fa-bars ml-1" aria-hidden="true"></i>
+          سفارش ها
+        </div>
+        <div class="col-md-7 mt-1 p-0 mx-2">
+          <!--<b-form-group horizontal class="mb-0">-->
+          <b-input-group class="col-md-3 px-0">
+            <b-form-input v-model="filter" placeholder="جستجو کنید"/>
+          </b-input-group>
+          <!--</b-form-group>-->
+        </div>
       </div>
       <b-col md="2" class="p-3 float-left">
         <div class="">
@@ -55,9 +55,11 @@
 
       <template slot="edit" slot-scope="row">
         <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
-        <button class="p-1">
-          <i class="fa fa-pencil green darken-1 p-1 icon_fa" aria-hidden="true"></i>
-        </button>
+        <router-link to="/information" class="">
+          <button class="p-1">
+            <i class="fa fa-pencil green darken-1 p-1 icon_fa" aria-hidden="true"></i>
+          </button>
+        </router-link>
         <button class="p-1">
           <i class="fa fa-trash-o blue-grey lighten-1 p-1 icon_fa" aria-hidden="true"></i>
         </button>
@@ -335,16 +337,18 @@
     /*color: white;*/
     /*padding: 10% !important;*/
     font-size: 18px;
-    font-weight: bold!important;
+    font-weight: bold !important;
   }
-   .icon_fa {
+
+  .icon_fa {
     border-radius: 5px;
     color: white;
   }
-  table.table thead th{
-    font-weight: bold!important;
+
+  table.table thead th {
+    font-weight: bold !important;
     font-size: 14px;
-    padding: 2%!important;
+    padding: 2% !important;
   }
 
   .item1 {
@@ -385,6 +389,7 @@
   .page-link {
     color: #24056c;
   }
+
   b-form-input:focus {
     outline: solid 1px red;
   }

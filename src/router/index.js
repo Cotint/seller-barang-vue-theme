@@ -5,6 +5,8 @@ import table1 from '../components/Utils/table_'
 import test1 from '../components/Utils/test1'
 import Search from '../components/search'
 import result from '../components/Utils/box-result'
+import information from '../components/information_tab'
+import tabsC from '../components/Utils/tabVue/tabConfig'
 Vue.use(Router)
 
 export default new Router({
@@ -12,7 +14,19 @@ export default new Router({
     {
       path: '/',
       name: 'page1',
-      component: page1
+      component: page1,
+      children:[
+        {
+          path:'/',
+          name:'table',
+          component:table1
+        },
+        {
+          path:'information',
+          name:'info',
+          component:information
+        },
+        ]
     },
     {
       path: '/table',
@@ -28,7 +42,16 @@ export default new Router({
       name: 'search',
       path: '/search',
       component: Search,
-      props: route => ({ query: route.query.q }),
+    },
+    {
+      name: 'information',
+      path: '/info',
+      component: information,
+    },
+    {
+      name: 'tab',
+      path: '/tab',
+      component: tabsC,
     },
   ]
 })
