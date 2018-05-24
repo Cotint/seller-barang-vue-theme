@@ -7,39 +7,45 @@
       <v-tab-item class="row mt-2 mr-1">
         <div class="container-fluid div_border"></div>
         <!--<v-card flat v-if="result2.length === 14" v-for="(item, key) in result2" class="border-0 col-lg-3">-->
-          <!--<form_info :title="item.title" :input="item.input" :id="item.id" class="p-2" :form_class="item.form_height"-->
-                     <!--@interface="handleFcAfterDateBack">-->
-          <!--</form_info>-->
+        <!--<form_info :title="item.title" :input="item.input" :id="item.id" class="p-2" :form_class="item.form_height"-->
+        <!--@interface="handleFcAfterDateBack">-->
+        <!--</form_info>-->
         <!--</v-card>-->
 
         <!--<v-card flat v-if="result2.length === 14" class="col-lg-12 w-100 border-0 mb-5" v-show="result2.length === 14">-->
-          <!--<b-form style="height: 150px;">-->
-            <!--<b-form-group id="exampleInputGroup2" label="توضیحات مختصر" label-for="15" class="p-2 mb-5">-->
-              <!--<textarea rows="5" id="15" type="text" required disabled :value="explanation"-->
-                        <!--class="bg-light p-3 w-100 col-md-12"></textarea>-->
-            <!--</b-form-group>-->
-          <!--</b-form>-->
+        <!--<b-form style="height: 150px;">-->
+        <!--<b-form-group id="exampleInputGroup2" label="توضیحات مختصر" label-for="15" class="p-2 mb-5">-->
+        <!--<textarea rows="5" id="15" type="text" required disabled :value="explanation"-->
+        <!--class="bg-light p-3 w-100 col-md-12"></textarea>-->
+        <!--</b-form-group>-->
+        <!--</b-form>-->
         <!--</v-card>-->
         <!--<div class="col-12 d-flex justify-content-center load-img" v-else>-->
-          <!--&lt;!&ndash;<v-progress-circular indeterminate color="primary"></v-progress-circular>&ndash;&gt;-->
-          <!--<div class="col-1"></div>-->
-          <!--<div class="col-1 pb-5 pt-2">-->
-            <!--<img src="../assets/img/progress2.gif">-->
-          <!--</div>-->
-          <!--<div class="col-1"></div>-->
+        <!--&lt;!&ndash;<v-progress-circular indeterminate color="primary"></v-progress-circular>&ndash;&gt;-->
+        <!--<div class="col-1"></div>-->
+        <!--<div class="col-1 pb-5 pt-2">-->
+        <!--<img src="../assets/img/progress2.gif">-->
+        <!--</div>-->
+        <!--<div class="col-1"></div>-->
         <!--</div>-->
 
         <v-card flat v-for="(item, key) in items" :class="item.form_father">
-        <form_info :title="item.title" :input="item.input" :id="item.id" class="p-1" :form_class="item.form_height"
-        @interface="handleFcAfterDateBack">
-        </form_info>
+          <form_info :title="item.title" :input="item.input" :id="item.id" class="p-1" :form_class="item.form_height"
+                     @interface="handleFcAfterDateBack">
+          </form_info>
         </v-card>
         <v-card flat class="border-0 col-lg-3 pl-5">
-          <ASelect  class="" header1="انتخاب گروه" input1="نمایش گروه" input2="کفش" input3="لباس"></ASelect>
+          <ASelect class="" header1="انتخاب گروه" input1="نمایش گروه" input2="کفش" input3="لباس"></ASelect>
         </v-card>
       </v-tab-item>
-      <v-tab-item class="row">
+      <v-tab-item class="row mt-2 mr-1">
         <div class="container-fluid div_border"></div>
+        <div>
+          <table1></table1>
+        </div>
+        <div class="col-md-6">
+          <table2></table2>
+        </div>
       </v-tab-item>
     </v-tabs>
     <!--<el-tabs tab-position="top" v-model="activeName" @tab-click="handleClick">-->
@@ -54,10 +60,15 @@
 <script>
   import form_info from '../components/Utils/form_info'
   import ASelect from '../components/Utils/ASelect'
+  import table2 from '../components/Utils/table_detail'
+  import table1 from '../components/Utils/table_information'
+
   export default {
     components: {
       form_info,
-      ASelect
+      ASelect,
+      table1,
+      table2
     },
     methods: {
       next() {
@@ -194,21 +205,89 @@
         active: null,
         result2: [],
         items: [
-          {title: 'نام کاربر', id_title: '1',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-4 pl-5'},
-          {title: 'شماره تلفن', id_title: '1',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-4 pl-5'},
-          {title: 'نام و نام خانوادگی', id_title: '1',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-4 pl-5'},
-          {title: 'آدرس', id_title: '1',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-12 pl-5'},
-          {title: 'نام سفارش', id_title: '1',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-12 pl-5'},
-          {title: 'توضیحات کاربر', id_title: '2',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-12 pl-5'},
-          {title: 'کد سفارش', input: 'sdd23', id_title: '3', id_input: '3',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'تاریخ ثبت نام', input: 'sdd23', id_title: '4', id_input: '4',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'نوع', input: 'sdd23', id_title: '5', id_input: '5',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'کد ملی', input: 'sdd23', id_title: '6', id_input: '6',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'تلفن', input: 'sdd23', id_title: '7', id_input: '7',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'آدرس سایت', input: 'sdd23', id_title: '8', id_input: '8',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'نام فروشگاه', input: 'sdd23', id_title: '9', id_input: '9',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'نام فروشگاه', input: 'sdd23', id_title: '10', id_input: '10',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
-          {title: 'نام فروشگاه', input: 'sdd23', id_title: '10', id_input: '10',form_height: 'bg-light p-3',form_father: 'border-0 col-lg-3 pl-5'},
+          {title: 'نام کاربر', id_title: '1', form_height: 'bg-light p-3', form_father: 'border-0 col-lg-4 pl-5'},
+          {title: 'شماره تلفن', id_title: '1', form_height: 'bg-light p-3', form_father: 'border-0 col-lg-4 pl-5'},
+          {
+            title: 'نام و نام خانوادگی',
+            id_title: '1',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-4 pl-5'
+          },
+          {title: 'آدرس', id_title: '1', form_height: 'bg-light p-3', form_father: 'border-0 col-lg-12 pl-5'},
+          {title: 'نام سفارش', id_title: '1', form_height: 'bg-light p-3', form_father: 'border-0 col-lg-12 pl-5'},
+          {title: 'توضیحات کاربر', id_title: '2', form_height: 'bg-light p-3', form_father: 'border-0 col-lg-12 pl-5'},
+          {
+            title: 'کد سفارش',
+            input: 'sdd23',
+            id_title: '3',
+            id_input: '3',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'تاریخ ثبت نام',
+            input: 'sdd23',
+            id_title: '4',
+            id_input: '4',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'نوع',
+            input: 'sdd23',
+            id_title: '5',
+            id_input: '5',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'کد ملی',
+            input: 'sdd23',
+            id_title: '6',
+            id_input: '6',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'تلفن',
+            input: 'sdd23',
+            id_title: '7',
+            id_input: '7',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'آدرس سایت',
+            input: 'sdd23',
+            id_title: '8',
+            id_input: '8',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'نام فروشگاه',
+            input: 'sdd23',
+            id_title: '9',
+            id_input: '9',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'نام فروشگاه',
+            input: 'sdd23',
+            id_title: '10',
+            id_input: '10',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
+          {
+            title: 'نام فروشگاه',
+            input: 'sdd23',
+            id_title: '10',
+            id_input: '10',
+            form_height: 'bg-light p-3',
+            form_father: 'border-0 col-lg-3 pl-5'
+          },
         ],
         activeName: 'first',
         parentValue: 'hello',
@@ -241,8 +320,9 @@
   .tabs__wrapper {
     border-bottom: 2px !important;
   }
+
   /*.tabs__items{*/
-    /*border-top: solid 1px gray!important;*/
+  /*border-top: solid 1px gray!important;*/
   /*}*/
 
   .tab_father {
@@ -279,7 +359,8 @@
     /*height: auto;*/
     resize: none;
   }
-  .salam{
+
+  .salam {
     border-top: solid 2px red;
     background-color: #1c7430;
   }

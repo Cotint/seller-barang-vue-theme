@@ -7,6 +7,7 @@ import Search from '../components/search'
 import result from '../components/Utils/box-result'
 import information from '../components/information_tab'
 import tabsC from '../components/Utils/tabVue/tabConfig'
+import table_info from '../components/Utils/table_information'
 Vue.use(Router)
 
 export default new Router({
@@ -46,7 +47,7 @@ export default new Router({
     {
       name: 'information',
       path: '/info',
-      component: information,
+      component: table_info,
     },
     {
       name: 'tab',
