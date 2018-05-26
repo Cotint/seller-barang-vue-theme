@@ -5,7 +5,7 @@
       <b-col md="2" class="p-3 float-left">
         <div class="">
           <!--<div class="col-md-4"></div>-->
-          <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
+          <b-pagination v-on:change="foo" :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
         </div>
       </b-col>
     </div>
@@ -26,21 +26,43 @@
       @filtered="onFiltered"
       thead-class="head_class">
     </b-table>
-    <!--<b-row>-->
-    <!--<b-col md="6" class="my-1">-->
-    <!--<b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0"/>-->
-    <!--</b-col>-->
-    <!--</b-row>-->
-
     <!-- Info modal -->
-    <b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>
-      <pre>{{ modalInfo.content }}</pre>
-    </b-modal>
+    <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
+    <!--<pre>{{ modalInfo.content }}</pre>-->
+    <!--</b-modal>-->
+
+    <!--<div class="row">-->
+      <!--<b-table class="col-md-6"-->
+               <!--colgroup="md-6"-->
+               <!--:responsive="true"-->
+               <!--stacked="md"-->
+               <!--:striped="false"-->
+               <!--:outlined="false"-->
+               <!--:bordered="false"-->
+               <!--:hover="true"-->
+               <!--:fixed="true"-->
+               <!--:items="items_detail"-->
+               <!--:fields="fields_detail"-->
+               <!--:current-page="currentPage"-->
+               <!--:perpage="perPage"-->
+               <!--:filter="filter"-->
+               <!--@filtered="onFiltered"-->
+               <!--thead-class="head_class">-->
+      <!--</b-table>-->
+      <!--@filtered="onFiltered"-->
+      <!-- Info modal -->
+      <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
+      <!--<pre>{{ modalInfo.content }}</pre>-->
+      <!--</b-modal>-->
+   <div>
+      <table_detail :id_father=this.currentPage></table_detail>
+   </div>
 
   </b-container>
 </template>
 
 <script>
+  import table_detail from './table_detail'
   const items = [
     {
       isActive: true,
@@ -51,6 +73,16 @@
       code3: '12/2/97',
       date1: '500 ',
       status: '0',
+      payment: '0'
+    }, {
+      isActive: true,
+      title1: 'f.maleki@cotint.ir',
+      id1: '2',
+      code1: '50',
+      code2: '55986',
+      code3: '12/2/97',
+      date1: '600 ',
+      status: '1',
       payment: '0'
     },
     {
@@ -64,10 +96,12 @@
       status: '1',
       payment: '0'
     },
-
-
   ]
+
   export default {
+    components:{
+      table_detail
+    },
     data() {
       return {
         state: 0,
@@ -125,8 +159,11 @@
           },
         },
         currentPage: 1,
-        perPage: 5,
+        // currentPage_detail: 1,
+        perPage: 1,
+        // perPage_detail: 5,
         totalRows: items.length,
+        // totalRows_detail: items_detail.length,
         pageOptions: [5, 10, 15],
         sortBy: null,
         sortDesc: false,
@@ -181,6 +218,9 @@
       change: function () {
         if (this.state == "0") this.state = "1";
         else this.state = "0";
+      },
+      foo:function () {
+        console.log("pagination changed",this.currentPage)
       }
     }
   }

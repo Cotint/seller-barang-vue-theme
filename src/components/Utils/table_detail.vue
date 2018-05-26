@@ -1,15 +1,6 @@
 <template>
-  <b-container fluid>
-    <!--&lt;!&ndash; User Interface controls &ndash;&gt;-->
-    <!--<div class="row d-flex justify-content-between">-->
-      <!--<b-col md="2" class="p-3 float-left">-->
-        <!--<div class="">-->
-          <!--&lt;!&ndash;<div class="col-md-4"></div>&ndash;&gt;-->
-          <!--<b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>-->
-        <!--</div>-->
-      <!--</b-col>-->
-    <!--</div>-->
 
+  <div class="col-md-6">
     <b-table
       :responsive="true"
       stacked="md"
@@ -18,7 +9,7 @@
       :bordered="false"
       :hover="true"
       :fixed="true"
-      :items="items"
+      :items="items3"
       :fields="fields"
       :current-page="currentPage"
       :per-page="perPage"
@@ -26,48 +17,42 @@
       @filtered="onFiltered"
       thead-class="head_class">
     </b-table>
-    <!--<b-row>-->
-    <!--<b-col md="6" class="my-1">-->
-    <!--<b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0"/>-->
-    <!--</b-col>-->
-    <!--</b-row>-->
-
+    <div class="">
+      <!--<div class="col-md-4"></div>-->
+      <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
+    </div>
     <!-- Info modal -->
-    <b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>
-      <pre>{{ modalInfo.content }}</pre>
-    </b-modal>
-
-  </b-container>
+    <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
+    <!--<pre>{{ modalInfo.content }}</pre>-->
+    <!--</b-modal>-->
+  </div>
 </template>
 
 <script>
   const items = [
-    {
-      isActive: true,
-      title1: 'کلم',
-      id1: '1',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '0',
-      payment: '0'
-    },
-    {
-      isActive: true,
-      title1: 'خیار',
-      id1: '2',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '600 ',
-      status: '1',
-      payment: '0'
-    },
-
-
+      {id: '1', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '2', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '3', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '4', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '5', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '6', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '7', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '8', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '9', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '10', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '11', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '12', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '13', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '14', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '15', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      {id: '16', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+      ]
+  const items2= [
+    {id: '1', kind: 'پروتئین سالم', name: 'کباب لقمه', number: 3, weight: 50},
+    {id: '2', kind: 'جوجه سالم', name: 'کباب لقمه', number: 3, weight: 50},
   ]
   export default {
+    props: ['id_father'],
     data() {
       return {
         state: 0,
@@ -91,37 +76,22 @@
             color: 'red accent-2 border-0',
           }
         ],
-        items: items,
+        items3:items,
         fields: {
-          id1: {
-            key: 'id1', label: 'وعده', sortable: false, class: 'text-center p-3'
+          id: {
+            key: 'id', label: 'شماره', sortable: false, class: ' text-center p-3'
           },
-          title1: {
-            key: 'title1', label: 'ظرف', sortable: false, class: 'text-center p-3'
+          kind: {
+            key: 'kind', label: 'دسته', sortable: false, class: ' text-center p-3'
           },
-          code1: {
-            key: 'code1', label: 'نوع', sortable: false, class: 'text-center p-3'
+          name: {
+            key: 'name', label: 'نام محصول', sortable: false, class: ' text-center p-3'
           },
-          code2: {
-            key: 'code2', label: 'نام سفارش', sortable: false, class: 'text-center p-3'
+          number: {
+            key: 'number', label: 'تعداد', sortable: false, class: ' text-center p-3'
           },
-          code3: {
-            key: 'code3', label: 'قیمت (ریال)', sortable: false, class: 'text-center p-3'
-          },
-          date1: {
-            key: 'date1', label: 'تعداد', sortable: false, class: 'text-center p-3'
-          },
-          date2: {
-            key: 'date2', label: 'انرژی', sortable: false, class: ' text-center p-3'
-          },
-          status: {
-            key: 'status', label: 'پروتئین', sortable: false, class: ' text-center p-3'
-          },
-          payment: {
-            key: 'payment', label: 'کربوهیدرات', sortable: false, class: ' text-center p-3'
-          },
-          edit: {
-            key: 'edit', label: 'چربی', sortable: false, class: ' text-center p-3'
+          weight: {
+            key: 'weight', label: 'وزن واحد', sortable: false, class: ' text-center p-3'
           },
         },
         currentPage: 1,
@@ -182,6 +152,24 @@
         if (this.state == "0") this.state = "1";
         else this.state = "0";
       }
+    },
+    watch:{
+      id_father:function () {
+        console.log("id_father changed now",this.id_father)
+        if(this.id_father==2){
+          this.items3 = items2
+          console.log("I'm in if",this.items)
+        }
+        if(this.id_father==1){
+          this.items3 = items
+          console.log("I'm in if",this.items)
+        }
+
+      }
+
+    },
+    mounted(){
+      // console.log("baleee: father",this.id_father)
     }
   }
 </script>

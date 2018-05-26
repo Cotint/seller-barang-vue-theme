@@ -43,9 +43,9 @@
         <div>
           <table1></table1>
         </div>
-        <div class="col-md-6">
-          <table2></table2>
-        </div>
+          <!--<div class="col-md-6">-->
+            <!--<table2></table2>-->
+          <!--</div>-->
       </v-tab-item>
     </v-tabs>
     <!--<el-tabs tab-position="top" v-model="activeName" @tab-click="handleClick">-->
@@ -109,95 +109,96 @@
     },
     created() {
       const _this = this;
-      var headers2 = {'Content-type': 'application/json', 'Access-Control-Allow-Origin': '*'}
-      console.log("it is result2: ", _this.result2);
-      window.axios.get(`/v1/shops/3`, headers2)
-        .then(function (result) {
-          // _this.result2 = result.data.data;
-          _this.result2.push({
-            title: 'نام فروشگاه',
-            input: result.data.data.name,
-            id: '1',
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'نام و نام خانوادگی',
-            input: 'نام و نام خانوادگی',
-            id: '2',
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'تاریخ ثبت نام',
-            input: result.data.data.start_date,
-            id: '3',
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'نوع',
-            input: result.data.data.type,
-            id: '4',
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'کد ملی',
-            input: result.data.data.user.national_id,
-            id: '5',
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'تلفن',
-            input: result.data.data.user.phone,
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'آدرس سایت',
-            input: result.data.data.website_url,
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'جنسیت', input: result.data.data.gender, width_form: 'border-0 col-lg-3', form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'واحد پولی',
-            input: result.data.data.bank,
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'تاریخ تولد',
-            input: result.data.data.start_date,
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'شماره شناسنامه',
-            input: result.data.data.national_id,
-            width_form: 'border-0 col-lg-3',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'کد فروشنده',
-            input: result.data.data.reseller_code,
-            width_form: 'border-0 col-lg-3 ',
-            form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'فعال', input: 'هست', width_form: 'border-0 col-lg-3', form_height: 'bg-light p-3'
-          })
-          _this.result2.push({
-            title: 'عضویت در خبرنامه', input: "ندارد", width_form: 'border-0 col-lg-3', form_height: ' bg-light p-3'
-          })
-          _this.explanation = result.data.data.description
+      // var headers2 = {'Content-type': 'application/json', 'Access-Control-Allow-Origin': '*'}
+      // console.log("it is result2: ", _this.result2);
+      // window.axios.get(`/v1/shops/3`, headers2)
+      //   .then(function (result) {
+      //     // _this.result2 = result.data.data;
+      //     _this.result2.push({
+      //       title: 'نام فروشگاه',
+      //       input: result.data.data.name,
+      //       id: '1',
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'نام و نام خانوادگی',
+      //       input: 'نام و نام خانوادگی',
+      //       id: '2',
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'تاریخ ثبت نام',
+      //       input: result.data.data.start_date,
+      //       id: '3',
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'نوع',
+      //       input: result.data.data.type,
+      //       id: '4',
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'کد ملی',
+      //       input: result.data.data.user.national_id,
+      //       id: '5',
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'تلفن',
+      //       input: result.data.data.user.phone,
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'آدرس سایت',
+      //       input: result.data.data.website_url,
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'جنسیت', input: result.data.data.gender, width_form: 'border-0 col-lg-3', form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'واحد پولی',
+      //       input: result.data.data.bank,
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'تاریخ تولد',
+      //       input: result.data.data.start_date,
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'شماره شناسنامه',
+      //       input: result.data.data.national_id,
+      //       width_form: 'border-0 col-lg-3',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'کد فروشنده',
+      //       input: result.data.data.reseller_code,
+      //       width_form: 'border-0 col-lg-3 ',
+      //       form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'فعال', input: 'هست', width_form: 'border-0 col-lg-3', form_height: 'bg-light p-3'
+      //     })
+      //     _this.result2.push({
+      //       title: 'عضویت در خبرنامه', input: "ندارد", width_form: 'border-0 col-lg-3', form_height: ' bg-light p-3'
+      //     })
+      //     _this.explanation = result.data.data.description
+      //
+      //     // console.log("hiiii",result.data);
+      //   })
 
-          // console.log("hiiii",result.data);
-        })
     },
 
     data() {
