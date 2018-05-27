@@ -2,23 +2,10 @@
   <b-container fluid>
     <!-- User Interface controls -->
     <div class="row d-flex justify-content-between">
-      <div class="col-md-9 d-flex">
-        <div class="col-md-1 pt-4 mt-1 p-0">
-          <i class="fa fa-bars ml-1" aria-hidden="true"></i>
-          سفارش ها
-        </div>
-        <div class="col-md-7 mt-1 p-0 mx-2">
-          <!--<b-form-group horizontal class="mb-0">-->
-          <b-input-group class="col-md-3 px-0">
-            <b-form-input v-model="filter" placeholder="جستجو کنید"/>
-          </b-input-group>
-          <!--</b-form-group>-->
-        </div>
-      </div>
       <b-col md="2" class="p-3 float-left">
         <div class="">
           <!--<div class="col-md-4"></div>-->
-          <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
+          <b-pagination v-on:change="foo" :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
         </div>
       </b-col>
     </div>
@@ -28,7 +15,7 @@
       stacked="md"
       :striped="true"
       :outlined="true"
-      :bordered="false"
+      :bordered="true"
       :hover="true"
       :fixed="true"
       :items="items"
@@ -38,56 +25,44 @@
       :filter="filter"
       @filtered="onFiltered"
       thead-class="head_class">
-      <template slot="status" slot-scope="row">
-        <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
-        <b-button size="sm" @click.stop="info(row.item, row.index, $event.target)"
-                  :class="statuses[row.item.status].color" class="h-75">
-          {{statuses[row.item.status].text}}
-        </b-button>
-      </template>
-      <template slot="payment" slot-scope="row">
-        <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
-        <b-button size="sm" @click.stop="info2(row.item, row.index, $event.target)"
-                  :class="state_pay[row.item.payment].color" class="h-75">
-          {{state_pay[row.item.payment].text}}
-        </b-button>
-      </template>
-
-      <template slot="edit" slot-scope="row">
-        <!-- We use @click.stop here to prevent a 'row-clicked' event from also happening -->
-        <router-link to="/information" class="">
-          <button class="p-1">
-            <i class="fa fa-pencil green darken-1 p-1 icon_fa" aria-hidden="true"></i>
-          </button>
-        </router-link>
-        <button class="p-1">
-          <i class="fa fa-trash-o blue-grey lighten-1 p-1 icon_fa" aria-hidden="true"></i>
-        </button>
-        <button class="p-1">
-          <i class="fa fa-print blue darken-3 p-1 icon_fa" aria-hidden="true"></i>
-        </button>
-        <button class="p-1">
-          <i class="fa fa-print light-blue accent-2 p-1 icon_fa" aria-hidden="true"></i>
-        </button>
-      </template>
-
-
     </b-table>
-    <!--<b-row>-->
-    <!--<b-col md="6" class="my-1">-->
-    <!--<b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0"/>-->
-    <!--</b-col>-->
-    <!--</b-row>-->
-
     <!-- Info modal -->
-    <b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>
-      <pre>{{ modalInfo.content }}</pre>
-    </b-modal>
+    <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
+    <!--<pre>{{ modalInfo.content }}</pre>-->
+    <!--</b-modal>-->
+
+    <!--<div class="row">-->
+      <!--<b-table class="col-md-6"-->
+               <!--colgroup="md-6"-->
+               <!--:responsive="true"-->
+               <!--stacked="md"-->
+               <!--:striped="false"-->
+               <!--:outlined="false"-->
+               <!--:bordered="false"-->
+               <!--:hover="true"-->
+               <!--:fixed="true"-->
+               <!--:items="items_detail"-->
+               <!--:fields="fields_detail"-->
+               <!--:current-page="currentPage"-->
+               <!--:perpage="perPage"-->
+               <!--:filter="filter"-->
+               <!--@filtered="onFiltered"-->
+               <!--thead-class="head_class">-->
+      <!--</b-table>-->
+      <!--@filtered="onFiltered"-->
+      <!-- Info modal -->
+      <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
+      <!--<pre>{{ modalInfo.content }}</pre>-->
+      <!--</b-modal>-->
+   <div>
+      <table_detail :id_father=this.currentPage></table_detail>
+   </div>
 
   </b-container>
 </template>
 
 <script>
+  import table_detail from './table_detail'
   const items = [
     {
       isActive: true,
@@ -99,8 +74,7 @@
       date1: '500 ',
       status: '0',
       payment: '0'
-    },
-    {
+    }, {
       isActive: true,
       title1: 'f.maleki@cotint.ir',
       id1: '2',
@@ -114,105 +88,20 @@
     {
       isActive: true,
       title1: 'f.maleki@cotint.ir',
-      id1: '3',
+      id1: '2',
       code1: '50',
       code2: '55986',
       code3: '12/2/97',
-      date1: '900 ',
-      status: '0',
-      payment: '1'
-    },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '4',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
+      date1: '600 ',
       status: '1',
-      payment: '1'
+      payment: '0'
     },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '5',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '1',
-      payment: '1'
-    },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '6',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '1',
-      payment: '1'
-    },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '7',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '1',
-      payment: '1'
-    },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '8',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '1',
-      payment: '1'
-    },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '9',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '0',
-      payment: '1'
-    },
-    {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '10',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '0',
-      payment: '1'
-    }, {
-      isActive: true,
-      title1: 'f.maleki@cotint.ir',
-      id1: '11',
-      code1: '50',
-      code2: '55986',
-      code3: '12/2/97',
-      date1: '500 ',
-      status: '1',
-      payment: '1'
-    },
-
-
   ]
+
   export default {
+    components:{
+      table_detail
+    },
     data() {
       return {
         state: 0,
@@ -239,39 +128,42 @@
         items: items,
         fields: {
           id1: {
-            key: 'id1', label: 'ردیف', sortable: false, class: 'text-center p-3'
+            key: 'id1', label: 'وعده', sortable: false, class: 'text-center p-3'
           },
           title1: {
-            key: 'title1', label: 'نام کاربری', sortable: false, class: 'text-center p-3'
+            key: 'title1', label: 'ظرف', sortable: false, class: 'text-center p-3'
           },
           code1: {
-            key: 'code1', label: 'تعداد', sortable: false, class: 'text-center p-3'
+            key: 'code1', label: 'نوع', sortable: false, class: 'text-center p-3'
           },
           code2: {
-            key: 'code2', label: 'کد پیگیری سفارش', sortable: false, class: 'text-center p-3'
+            key: 'code2', label: 'نام سفارش', sortable: false, class: 'text-center p-3'
           },
           code3: {
-            key: 'code3', label: 'تاریخ ثبت', sortable: false, class: 'text-center p-3'
+            key: 'code3', label: 'قیمت (ریال)', sortable: false, class: 'text-center p-3'
           },
           date1: {
-            key: 'date1', label: 'قیمت (تومان)', sortable: false, class: 'text-center p-3'
+            key: 'date1', label: 'تعداد', sortable: false, class: 'text-center p-3'
           },
-          // date2: {
-          //   key: 'date2', label: 'تاریخ ثبت سفارش', sortable: false, class: ' text-center p-3'
-          // },
+          date2: {
+            key: 'date2', label: 'انرژی', sortable: false, class: ' text-center p-3'
+          },
           status: {
-            key: 'status', label: 'وضعیت سفارش', sortable: false, class: ' text-center p-3'
+            key: 'status', label: 'پروتئین', sortable: false, class: ' text-center p-3'
           },
           payment: {
-            key: 'payment', label: 'وضعیت پرداخت', sortable: false, class: ' text-center p-3'
+            key: 'payment', label: 'کربوهیدرات', sortable: false, class: ' text-center p-3'
           },
           edit: {
-            key: 'edit', label: 'تغییرات', sortable: false, class: ' text-center p-3'
+            key: 'edit', label: 'چربی', sortable: false, class: ' text-center p-3'
           },
         },
         currentPage: 1,
-        perPage: 5,
+        // currentPage_detail: 1,
+        perPage: 1,
+        // perPage_detail: 5,
         totalRows: items.length,
+        // totalRows_detail: items_detail.length,
         pageOptions: [5, 10, 15],
         sortBy: null,
         sortDesc: false,
@@ -326,6 +218,9 @@
       change: function () {
         if (this.state == "0") this.state = "1";
         else this.state = "0";
+      },
+      foo:function () {
+        console.log("pagination changed",this.currentPage)
       }
     }
   }

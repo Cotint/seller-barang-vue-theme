@@ -13,6 +13,9 @@ import '../node_modules/vuetify/dist/vuetify.min.css'
 import './assets/bootstrap/bootstrap.min.css'
 import 'element-ui/lib/theme-default/index.css';
 import InstantSearch from 'vue-instantsearch';
+// import Buefy from 'buefy';
+// import 'buefy/lib/buefy.css';
+
 
 Vue.config.productionTip = false
 Vue.use(Vuetify);
@@ -20,6 +23,7 @@ Vue.use(fullscreen );
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 Vue.use(InstantSearch);
+// Vue.use(Buefy);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
