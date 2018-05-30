@@ -30,7 +30,7 @@
       :outlined="true"
       :bordered="false"
       :hover="true"
-      :fixed="true"
+      :fixed="false"
       :items="items"
       :fields="fields"
       :current-page="currentPage"
@@ -239,34 +239,34 @@
         items: items,
         fields: {
           id1: {
-            key: 'id1', label: 'ردیف', sortable: false, class: 'text-center p-3'
+            key: 'id1', label: 'ردیف', sortable: false, class: 'text-center align-middle'
           },
           title1: {
-            key: 'title1', label: 'نام کاربری', sortable: false, class: 'text-center p-3'
+            key: 'title1', label: 'نام کاربری', sortable: false, class: 'text-center align-middle'
           },
           code1: {
-            key: 'code1', label: 'تعداد', sortable: false, class: 'text-center p-3'
+            key: 'code1', label: 'تعداد', sortable: false, class: 'text-center align-middle'
           },
           code2: {
-            key: 'code2', label: 'کد پیگیری سفارش', sortable: false, class: 'text-center p-3'
+            key: 'code2', label: 'کد پیگیری سفارش', sortable: false, class: 'text-center align-middle'
           },
           code3: {
-            key: 'code3', label: 'تاریخ ثبت', sortable: false, class: 'text-center p-3'
+            key: 'code3', label: 'تاریخ ثبت', sortable: false, class: 'text-center align-middle'
           },
           date1: {
-            key: 'date1', label: 'قیمت (تومان)', sortable: false, class: 'text-center p-3'
+            key: 'date1', label: 'قیمت (تومان)', sortable: false, class: 'text-center align-middle'
           },
           // date2: {
           //   key: 'date2', label: 'تاریخ ثبت سفارش', sortable: false, class: ' text-center p-3'
           // },
           status: {
-            key: 'status', label: 'وضعیت سفارش', sortable: false, class: ' text-center p-3'
+            key: 'status', label: 'وضعیت سفارش', sortable: false, class: ' text-center align-middle'
           },
           payment: {
-            key: 'payment', label: 'وضعیت پرداخت', sortable: false, class: ' text-center p-3'
+            key: 'payment', label: 'وضعیت پرداخت', sortable: false, class: ' text-center align-middle'
           },
           edit: {
-            key: 'edit', label: 'تغییرات', sortable: false, class: ' text-center p-3'
+            key: 'edit', label: 'تغییرات', sortable: false, class: ' text-center align-middle'
           },
         },
         currentPage: 1,

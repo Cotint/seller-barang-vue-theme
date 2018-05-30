@@ -8,6 +8,7 @@ import result from '../components/Utils/box-result'
 import information from '../components/information_tab'
 import tabsC from '../components/Utils/tabVue/tabConfig'
 import table_info from '../components/Utils/table_information'
+import profile from '../components/profile'
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +27,11 @@ export default new Router({
           path:'information',
           name:'info',
           component:information
+        },
+        {
+          path:'profile',
+          name:'info',
+          component:profile
         },
         ]
     },
@@ -53,6 +59,11 @@ export default new Router({
       name: 'tab',
       path: '/tab',
       component: tabsC,
+    },
+    {
+      name: 'profile',
+      path: '/profile',
+      component: profile,
     },
   ]
 })

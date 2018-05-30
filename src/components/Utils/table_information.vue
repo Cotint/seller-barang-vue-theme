@@ -2,11 +2,16 @@
   <b-container fluid>
     <!-- User Interface controls -->
     <div class="row d-flex justify-content-between">
+      <b-col md="4"></b-col>
       <b-col md="2" class="p-3 float-left">
-        <div class="">
-          <!--<div class="col-md-4"></div>-->
-          <b-pagination v-on:change="foo" :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
-        </div>
+        <b-pagination v-on:change="foo" :total-rows="totalRows" :per-page="perPage" v-model="currentPage"
+                      class="my-0 "/>
+      </b-col>
+      <b-col md="4">
+        <router-link to="/" class="">
+          <v-btn class="float-left p-0 text-dark grey lighten-4"><i class="fa fa-arrow-left ml-1"></i>بازگشت</v-btn>
+        </router-link>
+        <v-btn class="float-left p-0 light-green darken-1 text-white"><i class="fa fa-floppy-o ml-1"></i>ذخیره</v-btn>
       </b-col>
     </div>
 
@@ -24,45 +29,47 @@
       :per-page="perPage"
       :filter="filter"
       @filtered="onFiltered"
-      thead-class="head_class">
-    </b-table>
-    <!-- Info modal -->
-    <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
-    <!--<pre>{{ modalInfo.content }}</pre>-->
-    <!--</b-modal>-->
+      thead-class="head_class_father">
 
-    <!--<div class="row">-->
-      <!--<b-table class="col-md-6"-->
-               <!--colgroup="md-6"-->
-               <!--:responsive="true"-->
-               <!--stacked="md"-->
-               <!--:striped="false"-->
-               <!--:outlined="false"-->
-               <!--:bordered="false"-->
-               <!--:hover="true"-->
-               <!--:fixed="true"-->
-               <!--:items="items_detail"-->
-               <!--:fields="fields_detail"-->
-               <!--:current-page="currentPage"-->
-               <!--:perpage="perPage"-->
-               <!--:filter="filter"-->
-               <!--@filtered="onFiltered"-->
-               <!--thead-class="head_class">-->
-      <!--</b-table>-->
-      <!--@filtered="onFiltered"-->
-      <!-- Info modal -->
-      <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
-      <!--<pre>{{ modalInfo.content }}</pre>-->
-      <!--</b-modal>-->
-   <div>
+      <template slot="HEAD_id1" slot-scope="data">
+        <strong class="head_class_father"><i class="fa fa-shopping-bag ml-2 "></i>{{data.label}}</strong>
+      </template>
+      <template slot="HEAD_title1" slot-scope="data">
+        <div class="head_class_father"><i class="fa fa-list ml-2"></i>{{data.label}}</div>
+      </template>
+      <template slot="HEAD_code1" slot-scope="data">
+        <div class="head_class_father"><i class="fa fa-shopping-basket ml-2"></i>{{data.label}}</div>
+      </template>
+      <template slot="HEAD_code2" slot-scope="data">
+        <div class="head_class_father"><i class="fa fa-sticky-note-o ml-2"></i>{{data.label}}</div>
+      </template>
+      <template slot="HEAD_code3" slot-scope="data" class="p-0">
+        <div class="head_class_father"><i class="fa fa-money ml-2"></i>{{data.label}}</div>
+      </template>
+
+      <!--<template slot="HEAD_date2" slot-scope="data">-->
+      <!--<em>{{data.label}}<i class="fa fa-close red"></i></em>-->
+      <!--</template>-->
+      <!--<template slot="HEAD_status" slot-scope="data">-->
+      <!--<em>{{data.label}}<i class="fa fa-close red"></i></em>-->
+      <!--</template>-->
+      <!--<template slot="HEAD_payment" slot-scope="data">-->
+      <!--<em>{{data.label}}<i class="fa fa-close red"></i></em>-->
+      <!--</template>-->
+      <!--<template slot="HEAD_edit" slot-scope="data">-->
+      <!--<em>{{data.label}}<i class="fa fa-close red"></i></em>-->
+      <!--</template>-->
+    </b-table>
+    <div>
       <table_detail :id_father=this.currentPage></table_detail>
-   </div>
+    </div>
 
   </b-container>
 </template>
 
 <script>
   import table_detail from './table_detail'
+
   const items = [
     {
       isActive: true,
@@ -99,7 +106,7 @@
   ]
 
   export default {
-    components:{
+    components: {
       table_detail
     },
     data() {
@@ -128,34 +135,34 @@
         items: items,
         fields: {
           id1: {
-            key: 'id1', label: 'وعده', sortable: false, class: 'text-center p-3'
+            key: 'id1', label: 'وعده', sortable: false, class: 'text-center align-middle'
           },
           title1: {
-            key: 'title1', label: 'ظرف', sortable: false, class: 'text-center p-3'
+            key: 'title1', label: 'ظرف', sortable: false, class: 'text-center align-middle'
           },
           code1: {
-            key: 'code1', label: 'نوع', sortable: false, class: 'text-center p-3'
+            key: 'code1', label: 'نوع', sortable: false, class: 'text-center align-middle'
           },
           code2: {
-            key: 'code2', label: 'نام سفارش', sortable: false, class: 'text-center p-3'
+            key: 'code2', label: 'نام سفارش', sortable: false, class: 'text-center align-middle'
           },
           code3: {
-            key: 'code3', label: 'قیمت (ریال)', sortable: false, class: 'text-center p-3'
+            key: 'code3', label: 'قیمت (ریال)', sortable: false, class: 'text-center align-middle'
           },
           date1: {
-            key: 'date1', label: 'تعداد', sortable: false, class: 'text-center p-3'
+            key: 'date1', label: 'تعداد', sortable: false, class: 'text-center align-middle'
           },
           date2: {
-            key: 'date2', label: 'انرژی', sortable: false, class: ' text-center p-3'
+            key: 'date2', label: 'انرژی', sortable: false, class: ' text-center align-middle'
           },
           status: {
-            key: 'status', label: 'پروتئین', sortable: false, class: ' text-center p-3'
+            key: 'status', label: 'پروتئین', sortable: false, class: ' text-center align-middle'
           },
           payment: {
-            key: 'payment', label: 'کربوهیدرات', sortable: false, class: ' text-center p-3'
+            key: 'payment', label: 'کربوهیدرات', sortable: false, class: ' text-center align-middle'
           },
           edit: {
-            key: 'edit', label: 'چربی', sortable: false, class: ' text-center p-3'
+            key: 'edit', label: 'چربی', sortable: false, class: ' text-center align-middle'
           },
         },
         currentPage: 1,
@@ -219,19 +226,20 @@
         if (this.state == "0") this.state = "1";
         else this.state = "0";
       },
-      foo:function () {
-        console.log("pagination changed",this.currentPage)
+      foo: function () {
+        console.log("pagination changed", this.currentPage)
       }
     }
   }
 </script>
 <style>
-  .head_class {
-    /*background-color: #540883;*/
+  .head_class_father {
+    background-color: #26A69A;
+    color: white;
     /*border: solid 1px white;*/
     /*color: white;*/
     /*padding: 10% !important;*/
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold !important;
   }
 
@@ -243,7 +251,7 @@
   table.table thead th {
     font-weight: bold !important;
     font-size: 14px;
-    padding: 2% !important;
+    /*padding: 1% !important;*/
   }
 
   .item1 {
