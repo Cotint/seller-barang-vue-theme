@@ -13,6 +13,14 @@ import '../node_modules/vuetify/dist/vuetify.min.css'
 import './assets/bootstrap/bootstrap.min.css'
 import 'element-ui/lib/theme-default/index.css';
 import InstantSearch from 'vue-instantsearch';
+import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "REPLACE-THIS-WITH-YOUR-KEY-FROM-ABOVE",
+    libraries: "places" // necessary for places input
+  }
+});
 // import Buefy from 'buefy';
 // import 'buefy/lib/buefy.css';
 
