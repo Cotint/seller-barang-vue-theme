@@ -21,8 +21,13 @@ Vue.use(VueGoogleMaps, {
     libraries: "places" // necessary for places input
   }
 });
-// import Buefy from 'buefy';
-// import 'buefy/lib/buefy.css';
+// import * as VueGoogleMaps from 'vue-google-maps'
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: "AIzaSyAZt97TFAMPbJkQreQAb9KyRx3Qu7dOcxw",
+//     libraries: "places" // necessary for places input
+//   }
+// });
 
 
 Vue.config.productionTip = false

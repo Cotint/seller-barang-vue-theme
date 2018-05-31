@@ -9,6 +9,7 @@ import information from '../components/information_tab'
 import tabsC from '../components/Utils/tabVue/tabConfig'
 import table_info from '../components/Utils/table_information'
 import profile from '../components/profile'
+import page_404 from '../components/404'
 Vue.use(Router)
 
 export default new Router({
@@ -64,6 +65,11 @@ export default new Router({
       name: 'profile',
       path: '/profile',
       component: profile,
+    },
+    {
+      name: '404',
+      path: '/404',
+      component: page_404,
     },
   ]
 })
