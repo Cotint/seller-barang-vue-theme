@@ -14,7 +14,7 @@
     <gmap-map
       :center="center"
       :zoom="12"
-      style="width:100%;  height: 400px;"
+      style="width:100%;  height: 350px;"
     >
       <gmap-marker
         :key="index"
@@ -25,6 +25,7 @@
       ></gmap-marker>
       <!--<marker icon="../assets/img/marker.png" ></marker>-->
     </gmap-map>
+    <br>
   </div>
 </template>
 

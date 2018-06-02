@@ -10,6 +10,11 @@ import tabsC from '../components/Utils/tabVue/tabConfig'
 import table_info from '../components/Utils/table_information'
 import profile from '../components/profile'
 import page_404 from '../components/404'
+import login_page from '../components/login'
+import forgot_pass from '../components/forgot_pass'
+import change_pass from '../components/change_pass'
+import faq from '../components/FAQ'
+
 Vue.use(Router)
 
 export default new Router({
@@ -18,23 +23,33 @@ export default new Router({
       path: '/',
       name: 'page1',
       component: page1,
-      children:[
+      children: [
         {
-          path:'/',
-          name:'table',
-          component:table1
+          path: '/',
+          name: 'table',
+          component: table1
         },
         {
-          path:'information',
-          name:'info',
-          component:information
+          path: 'information',
+          name: 'info',
+          component: information
         },
         {
-          path:'profile',
-          name:'info',
-          component:profile
+          path: 'profile',
+          name: 'info',
+          component: profile
         },
-        ]
+        {
+          name: 'change',
+          path: '/change',
+          component: change_pass,
+        },
+        {
+          name: 'FAQ',
+          path: '/faq',
+          component: faq,
+        },
+      ]
     },
     {
       path: '/table',
@@ -68,8 +83,19 @@ export default new Router({
     },
     {
       name: '404',
-      path: '/404',
+      path: '/error',
       component: page_404,
     },
+    {
+      name: 'login',
+      path: '/login',
+      component: login_page,
+    },
+    {
+      name: 'forgot',
+      path: '/forgot',
+      component: forgot_pass,
+    },
+
   ]
 })

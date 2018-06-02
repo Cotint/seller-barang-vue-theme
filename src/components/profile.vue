@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid row">
+  <div class="container-fluid row p-0 m-0">
 
     <div class="col-md-3 mt-3">
       <div class="row p-2 title mx-1">
@@ -45,10 +45,7 @@
         <div class="col-md-9 mr-3 p-1">خیابان خواجه عبدالله انصاری،کوچه چهاردهم،پلاک 15</div>
       </div>
     </div>
-    <div class="col-md-6 mt-3">
-      <div class="row p-2 title mx-1"><i class="fa fa-user ml-2 fa-lg"></i>
-        <div class="px-2 pt-2">اطلاعات کابری</div>
-      </div>
+    <div class="col-md-6">
       <GoogleMap></GoogleMap>
     </div>
   </div>

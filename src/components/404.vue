@@ -2,7 +2,7 @@
   <div class="row  father">
     <div class="col-md-4"></div>
     <div class="col-md-4 contain_f">
-      <div class="row contain d-flex justify-content-center">404</div>
+      <div class="row contain d-flex justify-content-center">{{error_num}}</div>
       <div class="row contain_sen font-weight-bold d-flex justify-content-center">متاسفیم! جایی مشکلی پیش آمده!</div>
       <div class="d-flex">
         <p class ="contain_below mt-3">ما نمی توانیم صفحه مورد نظر شما را
@@ -17,6 +17,7 @@
 
 <script>
   export default {
+    props:['error_num'],
     name: "404"
   }
 </script>

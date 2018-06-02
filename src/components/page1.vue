@@ -76,7 +76,9 @@
                       </v-avatar>
                     </div>
                     <div class="col-md-7 pl-4">عضو جدید اضافه شد</div>
-                    <v-badge class="col-md-3 pt-1 mt-1 mr-2 time_seen text-black-50 p-0 m-0" style="height: 20px"  color="teal accent-4">3 دقیقه پیش</v-badge>
+                    <v-badge class="col-md-3 pt-1 mt-1 mr-2 time_seen text-black-50 p-0 m-0" style="height: 20px"
+                             color="teal accent-4">3 دقیقه پیش
+                    </v-badge>
                     <!--<div class="col-md-3 float-left no-gutters text-black-50 time_seen p-0 m-0 mr-2"></div>-->
                   </div>
                 </el-dropdown-item>
@@ -88,7 +90,9 @@
                       </v-avatar>
                     </div>
                     <div class="col-md-7 pl-4">ارور در صفحه نمایش</div>
-                    <v-badge class="col-md-3 pt-1 mt-1 mr-2 time_seen text-black-50 p-0 m-0" style="height: 20px"  color="teal accent-4">2 دقیقه پیش</v-badge>
+                    <v-badge class="col-md-3 pt-1 mt-1 mr-2 time_seen text-black-50 p-0 m-0" style="height: 20px"
+                             color="teal accent-4">2 دقیقه پیش
+                    </v-badge>
                     <!--<div class="col-md-3 float-left no-gutters text-black-50 time_seen p-0 m-0 mr-2"></div>-->
                   </div>
                 </el-dropdown-item>
@@ -100,7 +104,9 @@
                       </v-avatar>
                     </div>
                     <div class="col-md-7 pl-4">لایک ها افزایش یافت</div>
-                    <v-badge class="col-md-3 pt-1 mt-2 mr-2 ml-1 time_seen text-black-50 p-0 m-0" style="height: 20px"  color="teal accent-4">2 دقیقه پیش</v-badge>
+                    <v-badge class="col-md-3 pt-1 mt-2 mr-2 ml-1 time_seen text-black-50 p-0 m-0" style="height: 20px"
+                             color="teal accent-4">2 دقیقه پیش
+                    </v-badge>
                     <!--<div class="col-md-3 float-left no-gutters text-black-50 time_seen p-0 m-0 mr-2"></div>-->
                   </div>
                 </el-dropdown-item>
@@ -147,7 +153,7 @@
             <b-collapse is-nav id="nav_collapse">
 
               <b-navbar-nav class="p-2  ">
-                <b-nav-item href="#" active class="px-3 item">
+                <b-nav-item href="#" class="px-3 item">
                   <i class="fa fa-home ml-1"></i>
                   داشبورد
                 </b-nav-item>
@@ -156,8 +162,10 @@
                   خانه
                 </b-nav-item>
                 <b-nav-item href="#" class="px-3 item">
-                  <i class="fa fa-home ml-1"></i>
-                  داشبورد
+                  <router-link to="/faq" class="nav1">
+                    <i class="fa fa-home ml-1"></i>
+                    سوالات متداول
+                  </router-link>
                 </b-nav-item>
                 <b-nav-item href="#" class="px-3 item">
                   <i class="fa fa-home ml-1"></i>
@@ -399,18 +407,28 @@
   .message {
     font-family: iran;
   }
-  .time_seen{
+
+  .time_seen {
     /*border-radius: 5px;*/
     font-size: 10px;
     background-color: #efefef;
   }
-  .avatar-icon{
+
+  .avatar-icon {
     border-radius: 40px;
   }
-  .message div{
+
+  .message div {
     color: #9c9c9c;
   }
-  .badge1:hover{
+
+  .badge1:hover {
     color: #00BFA5;
+  }
+  .nav1{
+    color: #8c8c8c;
+  }
+  .nav1:hover{
+    color: #4e4e4e;
   }
 </style>
