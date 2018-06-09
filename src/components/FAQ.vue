@@ -1,6 +1,8 @@
 <template>
   <div class="mx-3">
-    <div class="row col-md-12 py-4 title1">سوالات متداول</div>
+    <div class="row col-md-12 py-4 title1">
+      <i class="fa fa-question-circle ml-2 fa-lg"></i>
+      سوالات متداول</div>
     <b-card v-for="item in items" no-body class="mb-2 border-0 shadow-none">
       <!--<b-card-header header-tag="header" class="p-1" role="tab">-->
       <div class="bg-light p-2 contain border-0" @click="item.action">
@@ -90,5 +92,8 @@
     font-size: 24px;
     font-weight: 400;
     color: #4E5E6A;
+  }
+  i {
+    color: #26A69A;
   }
 </style>

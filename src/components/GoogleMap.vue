@@ -48,13 +48,14 @@
     },
 
     mounted() {
-      this.geolocate();
+      // this.geolocate();
       const marker = {
         lat: 45.508,
         lng: -73.587
       };
       // const image = '../../static/img/marker.png';
       this.markers.push({position: marker});
+      this.markers.push({icon: image});
       // this.markers.push({icon: image});
       this.center = marker;
     },

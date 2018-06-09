@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="row father pr-3 title1">تغییر رمز</div>
+    <div class="row father pr-3 title1">
+      <i class="fa fa-unlock-alt fa-lg ml-2"></i>
+      تغییر رمز</div>
     <div class="row father d-flex">
       <div class="col-md-3">
         <b-form-input class="p-2 my-2 ml-2" type="password" placeholder="رمز فعلی"></b-form-input>
@@ -60,6 +62,13 @@
   #confirm {
     background-color: #6a5fac;
   }
+  i{
+    color: #6a5fac;
+  }
+  i:hover{
+    color: #5a4f9c;
+    cursor: pointer;
+  }
 
   #back {
     border: solid 1px #e5e5e5;
@@ -81,5 +90,9 @@
     font-size: 22px;
     font-weight: 400;
     color: #4E5E6A;
+  }
+  .title1:hover{
+    cursor: pointer;
+    color: #363f4a;
   }
 </style>

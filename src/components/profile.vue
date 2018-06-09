@@ -73,11 +73,18 @@
   i {
     color: #26A69A;
   }
+  i:hover{
+    cursor: pointer;
+    color: #209084;
+  }
 
   .title {
     color: #26A69A;
   }
-
+  .title:hover{
+    cursor: pointer;
+    color: #209084;
+  }
   div a {
     color: black;
   }

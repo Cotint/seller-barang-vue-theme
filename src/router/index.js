@@ -14,6 +14,8 @@ import login_page from '../components/login'
 import forgot_pass from '../components/forgot_pass'
 import change_pass from '../components/change_pass'
 import faq from '../components/FAQ'
+import factor1 from '../components/factor1'
+
 
 Vue.use(Router)
 
@@ -52,9 +54,9 @@ export default new Router({
       ]
     },
     {
-      path: '/table',
-      name: 'page1',
-      component: table1
+      path: '/print1',
+      name: 'print1',
+      component: factor1
     },
     {
       path: '/result',
@@ -96,6 +98,10 @@ export default new Router({
       path: '/forgot',
       component: forgot_pass,
     },
-
+    {
+      name: 'factor1',
+      path: '/factor1',
+      component: factor1,
+    }
   ]
 })

@@ -63,9 +63,11 @@
         <button class="p-1">
           <i class="fa fa-trash-o blue-grey lighten-1 p-1 icon_fa" aria-hidden="true"></i>
         </button>
-        <button class="p-1">
-          <i class="fa fa-print blue darken-3 p-1 icon_fa" aria-hidden="true"></i>
-        </button>
+        <router-link to="/print1" class="">
+          <button class="p-1" >
+            <i class="fa fa-print blue darken-3 p-1 icon_fa" aria-hidden="true"></i>
+          </button>
+        </router-link>
         <button class="p-1">
           <i class="fa fa-print light-blue accent-2 p-1 icon_fa" aria-hidden="true"></i>
         </button>
@@ -326,8 +328,18 @@
       change: function () {
         if (this.state == "0") this.state = "1";
         else this.state = "0";
+      },
+      print: function () {
+        window.print();
+      },
+    },
+    watch: {
+      '$route': function(from,to) {
+        console.log("rout changed",to)
+
       }
     }
+
   }
 </script>
 <style>
@@ -392,5 +404,8 @@
 
   b-form-input:focus {
     outline: solid 1px red;
+  }
+  i:hover{
+    color: #c9c9c9;
   }
 </style>
