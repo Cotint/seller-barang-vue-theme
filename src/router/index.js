@@ -15,6 +15,7 @@ import forgot_pass from '../components/forgot_pass'
 import change_pass from '../components/change_pass'
 import faq from '../components/FAQ'
 import factor1 from '../components/factor1'
+import start from '../components/start_page'
 
 
 Vue.use(Router)
@@ -22,7 +23,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/valid',
       name: 'page1',
       component: page1,
       children: [
@@ -54,6 +55,23 @@ export default new Router({
       ]
     },
     {
+      path: '/',
+      name: 'start',
+      component: start,
+      children:[
+        {
+          path: '/',
+          name: 'login',
+          component: login_page
+        },
+        {
+          path: '/forget',
+          name: 'forget',
+          component: forgot_pass
+        },
+      ]
+    },
+    {
       path: '/print1',
       name: 'print1',
       component: factor1
@@ -79,9 +97,9 @@ export default new Router({
       component: tabsC,
     },
     {
-      name: 'profile',
-      path: '/profile',
-      component: profile,
+      name: 'test',
+      path: '/test',
+      component: test1,
     },
     {
       name: '404',
@@ -92,11 +110,13 @@ export default new Router({
       name: 'login',
       path: '/login',
       component: login_page,
-    },
-    {
-      name: 'forgot',
-      path: '/forgot',
-      component: forgot_pass,
+      children: [
+        {
+          name: 'forget',
+          path: '/login/forget',
+          component: forgot_pass,
+        }
+      ]
     },
     {
       name: 'factor1',

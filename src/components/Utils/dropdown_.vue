@@ -5,13 +5,13 @@
   </span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item class=" m-0 text-dark">
-        <router-link to="/profile" class="">
-          <div class="ml-5">پروفایل شما</div>
+        <router-link to="/valid/profile" class="">
+          <div class="-align-right text-right">پروفایل شما</div>
         </router-link>
       </el-dropdown-item>
       <el-dropdown-item class=" m-0 text-dark">
-        <router-link to="/change" class="">
-          <div class="ml-5">تغییر رمز</div>
+        <router-link to="/valid/change" class="">
+          <div class="align-items-start text-right">تغییر رمز</div>
         </router-link>
       </el-dropdown-item>
         <!--<el-dropdown-item class=" m-0 text-dark">-->

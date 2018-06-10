@@ -67,7 +67,6 @@
   }
   i:hover{
     color: #5a4f9c;
-    cursor: pointer;
   }
 
   #back {
@@ -92,7 +91,6 @@
     color: #4E5E6A;
   }
   .title1:hover{
-    cursor: pointer;
     color: #363f4a;
   }
 </style>

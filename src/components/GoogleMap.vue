@@ -12,7 +12,7 @@
     <!--</div>-->
     <br>
     <gmap-map
-      :center="center"
+    :center="{lat:'_this.lat2', lng:'_this.long2'}"
       :zoom="12"
       style="width:100%;  height: 350px;"
     >
@@ -34,25 +34,33 @@
   var iconBase = '../../static/img/';
   export default {
     name: "GoogleMap",
+    props:['lat1','long1'],
     components: {
     },
     data() {
       return {
         // default to Montreal to keep it simple
         // change this to whatever makes sense
-        center: {lat: 45.508, lng: -73.587},
+        // center: {lat: 45.508, lng: -73.587},
+        center: {lat: _this.lat, lng: _this.long},
         markers: [],
         places: [],
         currentPlace: null,
+        lat2:'',
+        long2:'',
         icon:iconC};
     },
 
-    mounted() {
+    created() {
       // this.geolocate();
       const marker = {
-        lat: 45.508,
-        lng: -73.587
+        lat: 35.70572412470452,
+        lng: 51.39220750268555
       };
+      console.log("this is here:",this.lat1,this.long1)
+      this.lat2=this.lat1;
+      this.long2=this.long1;
+      console.log("this is here  xx:",this.lat2,this.long2)
       // const image = '../../static/img/marker.png';
       this.markers.push({position: marker});
       this.markers.push({icon: image});
@@ -69,6 +77,8 @@
           const marker = {
             lat: this.currentPlace.geometry.location.lat(),
             lng: this.currentPlace.geometry.location.lng()
+            // lat:this.lat,
+            // lng:this.lng/
           };
           const image = '../../static/img/marker.png';
           this.markers.push({position: marker});
