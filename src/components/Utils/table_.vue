@@ -30,7 +30,7 @@
       :outlined="true"
       :bordered="false"
       :hover="true"
-      :fixed="true"
+      :fixed="false"
       :items="items"
       :fields="fields"
       :current-page="currentPage"
@@ -63,9 +63,11 @@
         <button class="p-1">
           <i class="fa fa-trash-o blue-grey lighten-1 p-1 icon_fa" aria-hidden="true"></i>
         </button>
-        <button class="p-1">
-          <i class="fa fa-print blue darken-3 p-1 icon_fa" aria-hidden="true"></i>
-        </button>
+        <router-link to="/print1" class="">
+          <button class="p-1" >
+            <i class="fa fa-print blue darken-3 p-1 icon_fa" aria-hidden="true"></i>
+          </button>
+        </router-link>
         <button class="p-1">
           <i class="fa fa-print light-blue accent-2 p-1 icon_fa" aria-hidden="true"></i>
         </button>
@@ -239,34 +241,34 @@
         items: items,
         fields: {
           id1: {
-            key: 'id1', label: 'ردیف', sortable: false, class: 'text-center p-3'
+            key: 'id1', label: 'ردیف', sortable: false, class: 'text-center align-middle'
           },
           title1: {
-            key: 'title1', label: 'نام کاربری', sortable: false, class: 'text-center p-3'
+            key: 'title1', label: 'نام کاربری', sortable: false, class: 'text-center align-middle'
           },
           code1: {
-            key: 'code1', label: 'تعداد', sortable: false, class: 'text-center p-3'
+            key: 'code1', label: 'تعداد', sortable: false, class: 'text-center align-middle'
           },
           code2: {
-            key: 'code2', label: 'کد پیگیری سفارش', sortable: false, class: 'text-center p-3'
+            key: 'code2', label: 'کد پیگیری سفارش', sortable: false, class: 'text-center align-middle'
           },
           code3: {
-            key: 'code3', label: 'تاریخ ثبت', sortable: false, class: 'text-center p-3'
+            key: 'code3', label: 'تاریخ ثبت', sortable: false, class: 'text-center align-middle'
           },
           date1: {
-            key: 'date1', label: 'قیمت (تومان)', sortable: false, class: 'text-center p-3'
+            key: 'date1', label: 'قیمت (تومان)', sortable: false, class: 'text-center align-middle'
           },
           // date2: {
           //   key: 'date2', label: 'تاریخ ثبت سفارش', sortable: false, class: ' text-center p-3'
           // },
           status: {
-            key: 'status', label: 'وضعیت سفارش', sortable: false, class: ' text-center p-3'
+            key: 'status', label: 'وضعیت سفارش', sortable: false, class: ' text-center align-middle'
           },
           payment: {
-            key: 'payment', label: 'وضعیت پرداخت', sortable: false, class: ' text-center p-3'
+            key: 'payment', label: 'وضعیت پرداخت', sortable: false, class: ' text-center align-middle'
           },
           edit: {
-            key: 'edit', label: 'تغییرات', sortable: false, class: ' text-center p-3'
+            key: 'edit', label: 'تغییرات', sortable: false, class: ' text-center align-middle'
           },
         },
         currentPage: 1,
@@ -326,8 +328,18 @@
       change: function () {
         if (this.state == "0") this.state = "1";
         else this.state = "0";
+      },
+      print: function () {
+        window.print();
+      },
+    },
+    watch: {
+      '$route': function(from,to) {
+        console.log("rout changed",to)
+
       }
     }
+
   }
 </script>
 <style>
@@ -392,5 +404,8 @@
 
   b-form-input:focus {
     outline: solid 1px red;
+  }
+  i:hover{
+    color: #c9c9c9;
   }
 </style>

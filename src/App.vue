@@ -32,4 +32,7 @@
     direction: rtl;
     font-family: iran;
   }
+  a:hover{
+    text-decoration: none;
+  }
 </style>

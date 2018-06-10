@@ -1,5 +1,5 @@
 <template>
-
+<div class="row">
   <div class="col-md-6">
     <b-table
       :responsive="true"
@@ -12,20 +12,39 @@
       :items="items3"
       :fields="fields"
       :current-page="currentPage"
-      :per-page="perPage"
+      per-page="10"
       :filter="filter"
       @filtered="onFiltered"
       thead-class="head_class">
     </b-table>
-    <div class="">
-      <!--<div class="col-md-4"></div>-->
-      <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0 "/>
-    </div>
+        <!-- Info modal -->
+    <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
+    <!--<pre>{{ modalInfo.content }}</pre>-->
+    <!--</b-modal>-->
+  </div>
+  <div class="col-md-6">
+    <b-table
+      :responsive="true"
+      stacked="md"
+      :striped="false"
+      :outlined="false"
+      :bordered="false"
+      :hover="true"
+      :fixed="true"
+      :items="items3"
+      :fields="fields"
+      :current-page="currentPage"
+      per-page="3"
+      :filter="filter"
+      @filtered="onFiltered"
+      thead-class="head_class">
+    </b-table>
     <!-- Info modal -->
     <!--<b-modal id="modalInfo" @hide="resetModal" :title="modalInfo.title" ok-only>-->
     <!--<pre>{{ modalInfo.content }}</pre>-->
     <!--</b-modal>-->
   </div>
+</div>
 </template>
 
 <script>
@@ -79,7 +98,7 @@
         items3:items,
         fields: {
           id: {
-            key: 'id', label: 'شماره', sortable: false, class: ' text-center p-3'
+            key: 'id', label: '#', sortable: false, class: ' text-center p-3'
           },
           kind: {
             key: 'kind', label: 'دسته', sortable: false, class: ' text-center p-3'
@@ -179,6 +198,7 @@
     /*border: solid 1px white;*/
     /*color: white;*/
     /*padding: 10% !important;*/
+    color: #26A69A;
     font-size: 18px;
     font-weight: bold !important;
   }
@@ -191,9 +211,11 @@
   table.table thead th {
     font-weight: bold !important;
     font-size: 14px;
-    padding: 2% !important;
+    padding: 1% !important;
   }
-
+  .table thead th{
+    vertical-align: middle;
+  }
   .item1 {
     background-color: #005cbf !important;
   }

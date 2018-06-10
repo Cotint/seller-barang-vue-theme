@@ -13,16 +13,31 @@ import '../node_modules/vuetify/dist/vuetify.min.css'
 import './assets/bootstrap/bootstrap.min.css'
 import 'element-ui/lib/theme-default/index.css';
 import InstantSearch from 'vue-instantsearch';
-// import Buefy from 'buefy';
-// import 'buefy/lib/buefy.css';
+import * as VueGoogleMaps from "vue2-google-maps";
+import Vuelidate from 'vuelidate'
+import axios from 'axios'
 
 
+let host = "http://api.barangfood.com/";
+// if (window.localStorage.token)
+//   axios.defaults.headers.common['Authorization'] = `Bearer ${window.localStorage.token}`;
+// axios.defaults.baseURL = host + "api";
+Vue.use(axios)
+// window.host = host;
+window.axios = axios
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyAZt97TFAMPbJkQreQAb9KyRx3Qu7dOcxw",
+    libraries: "places" // necessary for places input
+  }
+});
 Vue.config.productionTip = false
 Vue.use(Vuetify);
 Vue.use(fullscreen );
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 Vue.use(InstantSearch);
+Vue.use(Vuelidate)
 // Vue.use(Buefy);
 /* eslint-disable no-new */
 new Vue({

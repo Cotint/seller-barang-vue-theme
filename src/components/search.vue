@@ -1,78 +1,139 @@
 <template>
-  <div id="app" class="container">
-
-    <section>
-      <div class="block">
-        <button class="button" @click="activeTab = 1">Set Music</button>
-      </div>
-      <div class="block">
-        <b-switch v-model="showBooks"> Show Books item </b-switch>
-      </div>
-      <b-tabs v-model="activeTab">
-        <b-tab-item label="Pictures">
-
-          <nav class="panel">
-            <p class="panel-heading">
-              repositories
-            </p>
-            <b-tabs v-model="activeSubTab">
-              <b-tab-item label="Pictures">
-                asdfasdfaswedf
-              </b-tab-item>
-              <b-tab-item label="Jokers">
-                Lorem ipsum dolor sit amet.
-              </b-tab-item>
-            </b-tabs>
-          </nav>
-
-
-        </b-tab-item>
-
-        <b-tab-item label="Music">
-          Lorem <br>
-          ipsum <br>
-          dolor <br>
-          sit <br>
-          amet.
-        </b-tab-item>
-
-        <b-tab-item :visible="showBooks" label="Books">
-          What light is light, if Silvia be not seen? <br>
-          What joy is joy, if Silvia be not by <br>
-          Unless it be to think that she is by <br>
-          And feed upon the shadow of perfection? <br>
-          Except I be by Silvia in the night, <br>
-          There is no music in the nightingale.
-        </b-tab-item>
-
-        <b-tab-item label="Videos" disabled>
-          Nunc nec velit nec libero vestibulum eleifend.
-          Curabitur pulvinar congue luctus.
-          Nullam hendrerit iaculis augue vitae ornare.
-          Maecenas vehicula pulvinar tellus, id sodales felis lobortis eget.
-        </b-tab-item>
-      </b-tabs>
-    </section>
-
-  </div>
+  <v-data-table
+    :headers="headers"
+    :items="desserts"
+    hide-actions
+    class="elevation-1"
+  >
+    <template slot="items" slot-scope="props">
+      <td>{{ props.item.name }}</td>
+      <td class="text-xs-right">{{ props.item.calories }}</td>
+      <td class="text-xs-right">{{ props.item.fat }}</td>
+      <td class="text-xs-right">{{ props.item.carbs }}</td>
+      <td class="text-xs-right">{{ props.item.protein }}</td>
+      <td class="text-xs-right">{{ props.item.iron }}</td>
+    </template>
+    <template slot="HEAD_[id1]">
+      hiii
+      <i class="fa fa-close"></i>
+    </template>
+  </v-data-table>
 </template>
 
 <script>
-export default {
-  methods: {
-    switvh() { return 99; },
-    q() { return { codigo: 125 }; },
-  },
-  data() {
-    return {
-      activeTab: 0,
-      activeSubTab: 0,
-      showBooks: false
+  export default {
+    data () {
+      return {
+        headers: [
+          {
+            key: 'id',
+            text: 'Dessert (100g serving)',
+            align: 'left',
+            sortable: false,
+            value: 'name'
+          },
+          { text: 'Calories', value: 'calories' },
+          { text: 'Fat (g)', value: 'fat' },
+          { text: 'Carbs (g)', value: 'carbs' },
+          { text: 'Protein (g)', value: 'protein' },
+          { text: 'Iron (%)', value: 'iron' }
+        ],
+        desserts: [
+          {
+            value: false,
+            name: 'Frozen Yogurt',
+            calories: 159,
+            fat: 6.0,
+            carbs: 24,
+            protein: 4.0,
+            iron: '1%'
+          },
+          {
+            value: false,
+            name: 'Ice cream sandwich',
+            calories: 237,
+            fat: 9.0,
+            carbs: 37,
+            protein: 4.3,
+            iron: '1%'
+          },
+          {
+            value: false,
+            name: 'Eclair',
+            calories: 262,
+            fat: 16.0,
+            carbs: 23,
+            protein: 6.0,
+            iron: '7%'
+          },
+          {
+            value: false,
+            name: 'Cupcake',
+            calories: 305,
+            fat: 3.7,
+            carbs: 67,
+            protein: 4.3,
+            iron: '8%'
+          },
+          {
+            value: false,
+            name: 'Gingerbread',
+            calories: 356,
+            fat: 16.0,
+            carbs: 49,
+            protein: 3.9,
+            iron: '16%'
+          },
+          {
+            value: false,
+            name: 'Jelly bean',
+            calories: 375,
+            fat: 0.0,
+            carbs: 94,
+            protein: 0.0,
+            iron: '0%'
+          },
+          {
+            value: false,
+            name: 'Lollipop',
+            calories: 392,
+            fat: 0.2,
+            carbs: 98,
+            protein: 0,
+            iron: '2%'
+          },
+          {
+            value: false,
+            name: 'Honeycomb',
+            calories: 408,
+            fat: 3.2,
+            carbs: 87,
+            protein: 6.5,
+            iron: '45%'
+          },
+          {
+            value: false,
+            name: 'Donut',
+            calories: 452,
+            fat: 25.0,
+            carbs: 51,
+            protein: 4.9,
+            iron: '22%'
+          },
+          {
+            value: false,
+            name: 'KitKat',
+            calories: 518,
+            fat: 26.0,
+            carbs: 65,
+            protein: 7,
+            iron: '6%'
+          }
+        ]
+      }
     }
   }
-}
 </script>
-
 <style scoped>
 
 </style>

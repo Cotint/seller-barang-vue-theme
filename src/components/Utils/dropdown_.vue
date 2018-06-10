@@ -4,21 +4,21 @@
     شاپکت<i class="el-icon-arrow-down el-icon--right py-1 px-2"></i>
   </span>
     <el-dropdown-menu slot="dropdown">
-      <router-link to="/" class="align-self-start m-0">
-        <el-dropdown-item class="align-self-start m-0" @cli>| داشبورد</el-dropdown-item>
-      </router-link>
-      <router-link to="/tabs" class="align-self-start m-0">
-        <el-dropdown-item>پروفایل های شما</el-dropdown-item>
-      </router-link>
-      <router-link to="/" class="align-self-start m-0">
-        <el-dropdown-item>Action 3</el-dropdown-item>
-      </router-link>
-      <router-link to="/" class="align-self-start m-0">
-        <el-dropdown-item>تغییر رمز</el-dropdown-item>
-      </router-link>
-      <router-link to="/" class="align-self-start m-0">
-        <el-dropdown-item>بارگزاری مدارک</el-dropdown-item>
-      </router-link>
+      <el-dropdown-item class=" m-0 text-dark">
+        <router-link to="/valid/profile" class="">
+          <div class="-align-right text-right">پروفایل شما</div>
+        </router-link>
+      </el-dropdown-item>
+      <el-dropdown-item class=" m-0 text-dark">
+        <router-link to="/valid/change" class="">
+          <div class="align-items-start text-right">تغییر رمز</div>
+        </router-link>
+      </el-dropdown-item>
+        <!--<el-dropdown-item class=" m-0 text-dark">-->
+          <!--<router-link to="/faq" class="">-->
+            <!--<div class="ml-5">FAQ</div>-->
+          <!--</router-link>-->
+        <!--</el-dropdown-item>-->
     </el-dropdown-menu>
   </el-dropdown>
 </template>
@@ -48,5 +48,13 @@
     /*margin-right: 5%;*/
     /*padding: 2%;*/
     direction: rtl;
+  }
+
+  a:hover {
+    text-decoration: none;
+    direction: rtl;
+  }
+  a{
+    color: black;
   }
 </style>
